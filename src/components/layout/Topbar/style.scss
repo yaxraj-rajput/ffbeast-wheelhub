@@ -23,6 +23,7 @@
 
     img {
       height: 2rem;
+      mix-blend-mode: difference;
     }
   }
 
@@ -39,6 +40,7 @@
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
+      user-select: none;
 
       h1 {
         font-size: 1.3rem;

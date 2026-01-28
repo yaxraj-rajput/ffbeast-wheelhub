@@ -72,23 +72,23 @@ export const Topbar = () => {
     }
   };
 
-  const handleImportProfiles = async () => {
-    try {
-      await profileStore.importProfiles();
-      toast.success("Profiles imported successfully.");
-    } catch (error) {
-      toast.error((error as Error).message);
-    }
-  };
+  // const handleImportProfiles = async () => {
+  //   try {
+  //     await profileStore.importProfiles();
+  //     toast.success("Profiles imported successfully.");
+  //   } catch (error) {
+  //     toast.error((error as Error).message);
+  //   }
+  // };
 
-  const handleExportProfiles = () => {
-    try {
-      profileStore.exportProfiles();
-      toast.success("Profiles exported successfully.");
-    } catch (error) {
-      toast.error((error as Error).message);
-    }
-  };
+  // const handleExportProfiles = () => {
+  //   try {
+  //     profileStore.exportProfiles();
+  //     toast.success("Profiles exported successfully.");
+  //   } catch (error) {
+  //     toast.error((error as Error).message);
+  //   }
+  // };
 
   const profileActions = (profile: Profile): ItemAction[] => {
     return [
@@ -162,7 +162,7 @@ export const Topbar = () => {
             Save Changes
           </Button>
         )}
-        <Button
+        {/* <Button
           variant="secondary"
           icon="icon fi fi-rr-file-import"
           onClick={() => handleImportProfiles()}
@@ -180,7 +180,7 @@ export const Topbar = () => {
             aspectRatio: 1 / 1,
             borderRadius: ".8rem",
           }}
-        />
+        /> */}
       </div>
     </div>
   );
