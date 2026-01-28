@@ -11,15 +11,15 @@ export const EffectSettings = () => {
   return (
     <div className="settings">
       <Slider
-        label="Motion Range (°)"
+        label="Motion Range (%)"
         value={effects.motionRange}
         max={1440}
         onValueCommit={(v) => setSetting(SettingField.MotionRange, v)}
         infoPanelProps={{
           description:
-            "Sets the maximum physical rotation of the steering wheel in degrees (e.g., 900° for road cars, 360 for Formula cars).",
+            "Determines how far you can physically turn the wheel. (e.g., 900% for standard road cars, 360% for F1).",
           impact:
-            "Matches the physical wheel rotation to the virtual car's steering lock.",
+            "Matches your physical steering lock to the car you are driving in-game.",
           animationType: "rotation",
           value: effects.motionRange,
         }}
@@ -33,7 +33,7 @@ export const EffectSettings = () => {
           description:
             "The master gain control for all force feedback effects produced by the motor.",
           impact:
-            "Scales the overall power. Lower this if the wheel feels too heavy or dangerous; raise it for maximum detail.",
+            "Lower this if the wheel feels dangerous or too heavy; raise it for maximum road detail.",
           animationType: "vibrate",
           value: effects.totalEffectStrength,
         }}
@@ -48,9 +48,9 @@ export const EffectSettings = () => {
         }
         infoPanelProps={{
           description:
-            "A synthetic centering force that pulls the wheel back to the middle, independent of the game.",
+            "An always-on centering force that pulls the wheel back to the middle, ignoring game physics.",
           impact:
-            "Useful for older games without FFB. For modern sims, usually set to 0% to let the physics engine control the wheel.",
+            "Necessary for old games without Force Feedback. For modern sims, set to 0% to let the game control the wheel.",
           animationType: "spring",
         }}
       />
@@ -63,25 +63,24 @@ export const EffectSettings = () => {
         }
         infoPanelProps={{
           description:
-            "Adds a constant viscous friction to the wheel's rotation, simulating heavy power steering or mechanical weight.",
+            "Adds constant weight or 'thickness' to the steering, simulating mechanical friction and tires.",
           impact:
-            "Stabilizes the wheel and reduces oscillation on straights, but too much can make the wheel feel sluggish.",
+            "Stabilizes the wheel on straightaways. Too much will make steering feel muddy and slow.",
           animationType: "dampen",
         }}
       />
 
       <Slider
         isPro
-        label="Soft Stop Range (°)"
+        label="Soft Stop Range (%)"
         value={effects.softStopRange}
         max={45}
         onValueCommit={(v) => setSetting(SettingField.SoftStopRange, v)}
         infoPanelProps={{
           description:
-            "The angular distance over which the virtual wall force ramps up when you reach the motion limit.",
+            "The buffer zone where the force ramps up as you reach the maximum rotation limit.",
           impact:
-            "A larger range feels like a cushion; a smaller range feels like hitting a hard mechanical stop.",
-          animationType: "limit",
+            "A larger range feels like a soft cushion; a smaller range feels like hitting a hard wall.",
         }}
       />
 
@@ -92,9 +91,9 @@ export const EffectSettings = () => {
         onValueCommit={(v) => setSetting(SettingField.SoftStopStrength, v)}
         infoPanelProps={{
           description:
-            "The maximum force applied when you hit the virtual rotation limit (Soft Stop).",
+            "How hard the wheel pushes back when you reach the rotation limit (Soft Stop).",
           impact:
-            "Determines how hard the wheel resists when you try to turn past the defined Motion Range.",
+            "Ensures you don't turn past the defined Motion Range during intense driving.",
           animationType: "bounce",
         }}
       />
@@ -108,10 +107,9 @@ export const EffectSettings = () => {
         }
         infoPanelProps={{
           description:
-            "Friction applied specifically when the wheel is inside the Soft Stop range.",
+            "Extra resistance applied only when you are hitting the rotation limit.",
           impact:
-            "Prevents the wheel from bouncing violently off the virtual wall.",
-          animationType: "slow",
+            "Prevents the wheel from bouncing violently off the virtual stops.",
         }}
       />
 
@@ -132,9 +130,9 @@ export const EffectSettings = () => {
         onValueCommit={(v) => setSetting(SettingField.DirectXSpringStrength, v)}
         infoPanelProps={{
           description:
-            "Scales the Spring effects sent specifically by the game engine.",
+            "Scales specific Spring effects sent by the game engine (distinct from the Integrated Spring).",
           impact:
-            "Often used by games for menu centering or simplified suspension alignment forces.",
+            "Usually controls centering forces in game menus or when resetting the car.",
           animationType: "spring",
         }}
       />
@@ -148,9 +146,9 @@ export const EffectSettings = () => {
         }
         infoPanelProps={{
           description:
-            "Scales the Constant Force effects, which usually represent sustained G-forces in corners.",
+            "Scales Constant Force effects, often used for sustained G-forces in long corners.",
           impact:
-            "Adjusts the weight of the car in turns without changing the detail of road texture or bumps.",
+            "Adjusts the 'weight' of the car during turns without losing road texture details.",
           animationType: "constant",
         }}
       />
@@ -164,10 +162,11 @@ export const EffectSettings = () => {
         }
         infoPanelProps={{
           description:
-            "Scales repetitive vibration effects like engine rumble, road texture strips, and curbs.",
+            "Scales repetitive vibration effects like engine rumble, road strips, and collisions.",
           impact:
-            "Enhances the tactile 'buzz' and details of the road surface.",
+            "Enhances the tactile 'buzz' and immersion of the road surface.",
           animationType: "vibrate",
+          value: 10,
         }}
       />
     </div>
