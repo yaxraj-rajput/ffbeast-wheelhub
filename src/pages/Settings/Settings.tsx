@@ -84,10 +84,6 @@ export const Settings = () => {
           <span className="info-value">{__APP_VERSION__}</span>
         </div>
         <div className="info-row">
-          <span className="info-label">Build Date:</span>
-          <span className="info-value">December 19, 2025</span>
-        </div>
-        <div className="info-row">
           <span className="info-label">License:</span>
           <span className="info-value">MIT License</span>
         </div>
@@ -97,25 +93,20 @@ export const Settings = () => {
 
       <div className="about-description">
         <h3>About This Application</h3>
+
         <p>
-          FFBeast is a powerful force feedback management application designed
-          to provide precise control over your force feedback devices. With
-          advanced customization options and real-time monitoring, FFBeast
-          ensures the best possible experience for your racing and simulation
-          needs.
+          FFBeast WheelHub is a browser-based configurator for the FFBeast
+          wheel. Powered by the{" "}
+          <a
+            href="https://github.com/shubham0x13/ffbeast-wheel-webhid-api"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            FFBeast Wheel WebHID API
+          </a>
+          .
         </p>
-
-        <h3>Features</h3>
-        <ul>
-          <li>Advanced force feedback control</li>
-          <li>Real-time effect monitoring</li>
-          <li>Customizable controller settings</li>
-          <li>Performance statistics</li>
-          <li>Intuitive user interface</li>
-        </ul>
       </div>
-
-      <Divider />
 
       <div className="action-buttons">
         <Button
@@ -164,14 +155,6 @@ export const Settings = () => {
           software.
         </p>
 
-        <h3>Hardware Compatibility</h3>
-        <p>
-          While FFBeast strives to be compatible with a wide range of force
-          feedback devices, we cannot guarantee compatibility with all hardware.
-          Always ensure your device is properly configured and drivers are up to
-          date before use.
-        </p>
-
         <h3>Safety Warning</h3>
         <p className="warning-text">
           Force feedback devices can produce strong forces. Always start with
@@ -189,15 +172,8 @@ export const Settings = () => {
 
         <h3>Data Privacy</h3>
         <p>
-          FFBeast does not collect or transmit any personal data. All settings
-          and configurations are stored locally on your device.
-        </p>
-
-        <h3>Third-Party Software</h3>
-        <p>
-          This application uses various open-source libraries and dependencies.
-          Please refer to the documentation for a complete list of third-party
-          software and their respective licenses.
+          FFBeast WheelHub does not collect or transmit any personal data. All
+          settings and configurations are stored locally on your device.
         </p>
       </div>
     </div>
@@ -242,7 +218,7 @@ export const Settings = () => {
             className="buy_coffee"
           >
             <Button variant="primary" icon="fi fi-rr-coffee">
-              Buy us a Coffee
+              Buy me a Coffee
             </Button>
           </a>
         </div>
