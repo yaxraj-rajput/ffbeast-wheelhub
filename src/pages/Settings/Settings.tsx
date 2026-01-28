@@ -7,7 +7,7 @@ import { DEFAULT_APP_PREFERENCES } from "@/config";
 import { useAppPreferencesStore } from "@/stores";
 import { THEMES } from "@/theme";
 
-type TabType = "preferences" | "about" | "changelog" | "disclaimer";
+type TabType = "preferences" | "about" | "disclaimer";
 
 interface Tab {
   id: TabType;
@@ -18,23 +18,7 @@ interface Tab {
 const tabs: Tab[] = [
   { id: "preferences", label: "Preferences" },
   { id: "about", label: "About" },
-  { id: "changelog", label: "Changelog" },
   { id: "disclaimer", label: "Disclaimer" },
-];
-
-const changelogData = [
-  {
-    version: "0.1.0",
-    date: "Jan 26, 2026",
-    changes: [
-      "Initial release",
-      "Connection management",
-      "Wheel preview",
-      "Profile management",
-      "Theme customization",
-      "Custom wheel images",
-    ],
-  },
 ];
 
 export const Settings = () => {
@@ -165,37 +149,6 @@ export const Settings = () => {
     </div>
   );
 
-  const renderChangelogContent = () => (
-    <div className="settings-content">
-      <h2>Changelog</h2>
-      <p className="settings-description">
-        Track all the updates, improvements, and bug fixes across versions.
-      </p>
-
-      <Divider
-        style={{
-          marginBottom: "1rem",
-        }}
-      />
-
-      <div className="changelog-section">
-        {changelogData.map((release) => (
-          <div key={release.version} className="changelog-item">
-            <div className="changelog-header">
-              <h3>Version {release.version}</h3>
-              <span className="changelog-date">{release.date}</span>
-            </div>
-            <ul className="changelog-list">
-              {release.changes.map((change, index) => (
-                <li key={index}>{change}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-
   const renderDisclaimerContent = () => (
     <div className="settings-content">
       <h2>Disclaimer & Legal</h2>
@@ -256,8 +209,6 @@ export const Settings = () => {
         return renderThemeContent();
       case "about":
         return renderAboutContent();
-      case "changelog":
-        return renderChangelogContent();
       case "disclaimer":
         return renderDisclaimerContent();
       default:
