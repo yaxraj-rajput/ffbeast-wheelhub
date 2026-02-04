@@ -113,7 +113,8 @@ export const ControllerSettings = () => {
       <Slider
         label="P Gain"
         value={hardware.proportionalGain}
-        max={50}
+        min={0}
+        max={100}
         onValueCommit={(v) => setSetting(SettingField.PGain, v)}
         infoPanelProps={{
           description:
