@@ -13,7 +13,7 @@ export const EffectSettings = () => {
       <Slider
         label="Motion Range (%)"
         value={effects.motionRange}
-        max={1440}
+        max={1800}
         onValueCommit={(v) => setSetting(SettingField.MotionRange, v)}
         infoPanelProps={{
           description:
@@ -74,6 +74,7 @@ export const EffectSettings = () => {
         isPro
         label="Soft Stop Range (%)"
         value={effects.softStopRange}
+        min={1}
         max={45}
         onValueCommit={(v) => setSetting(SettingField.SoftStopRange, v)}
         infoPanelProps={{
